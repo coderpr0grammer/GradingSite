@@ -5,7 +5,7 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <footer >
+        <footer>
             <div className="footer">
                 <ul>
                     <li><Link to="/">Home</Link></li>
