@@ -8,15 +8,19 @@ import TeacherAsset from "../../../assets/Teacher-Asset.png";
 export default function Home() {
   return (
     <div id="Home">
-      <Container id="container">
+      <Container fluid id="container" style={{ height: "100%" }}>
         <Row
           style={{
             display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            height: "100%",
+            padding: 50,
           }}
         >
-          <Col style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start', padding: 50, height: '100%'}}><h1>Grading Just Got Easier</h1></Col>
+          <Col style={{display: 'flex', justifyContent: 'center', paddingTop: 50}}>
+            <h1 style={{color: "#28A334", fontSize: 80, fontWeight:1000}}>
+              Grading Just <br></br>Got <span style={{color: '#150578'}}>Easier</span>
+            </h1>
+          </Col>
           <Col style={{ display: "flex", justifyContent: "flex-start" }}>
             <img
               alt="GradingSite"
