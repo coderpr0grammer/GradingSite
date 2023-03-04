@@ -168,7 +168,7 @@ const Grade = () => {
       let prompt = [
         {
           role: "system",
-          content: `You are a strict teacher that will be marking an assignment out of 100%. You must give your response in the format: {"mark": "YOUR_MARK_WITHOUT_PERCENT_SYMBOL", "feedback": "YOUR_FEEDBACK"}`,
+          content: `You are a strict teacher that will be marking an assignment out of 100%. You must give your response in the following JSON format: {"mark": "YOUR_MARK_WITHOUT_PERCENT_SYMBOL", "feedback": "YOUR_FEEDBACK"}`,
         },
         {
           role: "user",
@@ -176,7 +176,7 @@ const Grade = () => {
         },
       ];
 
-      const response = fetch("https://gradeassist-server.vercel.app/api", {
+      const response = fetch("https://gradeassist-yrhacks-server.vercel.app/api", {
         method: "POST",
         mode: "cors",
         headers: {
@@ -189,14 +189,19 @@ const Grade = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.content);
+          console.log('response', data.content);
 
-          let responseJSONParsed = JSON.parse(data.content);
+          try {
+            let responseJSONParsed = JSON.parse(data.content);
           setResponseParsed(responseJSONParsed);
           setMark(responseJSONParsed.mark);
           setFeedback(responseJSONParsed.feedback);
 
           resultRef.current.scrollIntoView({ behavior: "smooth" });
+          } catch (err) {
+            alert('Oops! We ran into an issue trying to mark your assignment. Try again please!')
+          }
+          
           setLoading(false);
         })
         .catch((err) => {
@@ -396,10 +401,14 @@ const Grade = () => {
               </div>
               <BarGraph/>
 
-              <h1>Grade: {mark}%</h1>
               <Spacer size={30} />
-              <h1>Feedback:</h1>
+              <div id="feedbackBox">
+              <h1 id="feedbackTitle">Media Feedback:</h1>
+              <p class="counts">Word Count: </p>
+              <p class="counts">Character Count: </p>
               <p>{feedback}</p>
+              </div>
+              
             </div>
           )}
         </Row>

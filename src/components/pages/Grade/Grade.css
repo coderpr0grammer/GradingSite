@@ -85,3 +85,33 @@ background: #9890BA;
     cursor: pointer;
     color: #c63535
 }
+
+#feedbackBox{
+    background: #EEEBF8;
+    padding: 30px;
+    border-radius: 47px;
+}
+
+#feedbackTitle{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 77px;
+    
+    color: #F2F2F2;
+    background: #141996;
+    border-radius: 47px;
+    padding: 20px;
+    padding-left: 40px;
+    margin-bottom: 20px;
+}   
+
+.counts{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #4B0A9C;
+}
