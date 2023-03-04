@@ -115,3 +115,11 @@ background: #9890BA;
     line-height: 29px;
     color: #4B0A9C;
 }
+
+#divider{
+    background: #141996;
+    border-radius: 15px;
+    padding:5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

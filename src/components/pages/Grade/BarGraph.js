@@ -18,7 +18,7 @@ import {
 
 function BarGraph() {
     const data = {
-        labels: ['Grammar and Technical Mechanics', 'Structural Integrity', 'Adherance to Criteria'],
+        labels: ['Grammar', 'Structure', 'Thinking'],
         datasets: [
           {
             label: 'Bar 1',
@@ -70,7 +70,7 @@ function BarGraph() {
 
 
   return (
-    <div style={{ width: '400px', height: '400px' }}>
+    <div style={{ width: '600px', height: '400px' }}>
       <Bar data={data}  options={options}/>
     </div>
   );

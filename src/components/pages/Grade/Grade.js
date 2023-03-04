@@ -203,6 +203,18 @@ const Grade = () => {
     }
   };
 
+  function WordCount(str) { 
+    return str.split(" ").length;
+  }
+
+  let wordCount = WordCount(assignmentText);
+
+  function CharCount(str) { 
+    return str.length;
+  }
+
+  let charCount = CharCount(assignmentText);
+
   return (
     <div style={{ background: theme.colors.background, padding: 30 }}>
       <h4 style={{ textAlign: "center" }}>{title && title}</h4>
@@ -375,7 +387,11 @@ const Grade = () => {
         <Row id="result" ref={resultRef}>
           {responseParsed && (
             <div>
-              <div style={{ width: "200px", height: "200px",  borderRadius: '100%' , borderWidth: 10, borderColor: 'red'}}>
+              
+<div id="divider"></div>
+              <div class="row">
+    <div class="col">
+    <div style={{ width: "350px", height: "350px",  borderRadius: '100%' , borderWidth: 10, borderColor: 'red'}}>
                 <PieChart
                   data={[{ title: mark, value: 1, color: mark > 70 ? "green" : 'orange' }]}
                   radius={40}
@@ -390,14 +406,19 @@ const Grade = () => {
                   animate
                 />
               </div>
-              <BarGraph/>
+    </div>
+    <div class="col">
+    <BarGraph/>
+    </div>
+  </div>
+
+              
 
               <Spacer size={30} />
               <div id="feedbackBox">
               <h1 id="feedbackTitle">Media Feedback:</h1>
-              <p class="counts">Word Count: </p>
-              <p class="counts">Character Count: </p>
-              <p>{feedback}</p>
+              <p class="counts">Word Count: {wordCount} </p>
+              <p class="counts">Character Count: {charCount}</p>
               </div>
               
             </div>
