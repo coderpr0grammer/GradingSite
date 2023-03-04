@@ -1,11 +1,16 @@
 #DiscoverHeader{
-    color: #EBF1EC;
+    color: #7FBFE2;
     background: #7FBFE2;
 
-    margin: 30px;
+    margin: 0 30px;
     padding: 30px;
     border-radius: 25px;
     max-width: 100%;
+    overflow-x: hidden;
+}
+
+#container {
+    background: #DCEDDB;
 }
 
 #DiscoverHeaderText{
@@ -20,8 +25,7 @@
 }   
 
 .card {
-    flex-basis: 33.333333%;
-    padding: 30px;
+    padding: 10px;
 }
 
 .card-title {
@@ -55,10 +59,6 @@
 .categoryDropDownChoice{
     color: black;
     font-family: 'Inter';
-}
-
-.center {
-    padding: 5%;  
 }
 
 .discover-card {

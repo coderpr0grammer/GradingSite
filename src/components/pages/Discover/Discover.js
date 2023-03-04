@@ -13,15 +13,15 @@ import "./Discover.css";
 import Card from "react-bootstrap/Card";
 import { db } from "../../../utils/firebaseConfig";
 import AssignmentItem from "../MyAssignments/AssignmentItem";
-import ExploreAssignments from "../../../assets/ExploreAssignments.png";
+import ExploreAssignments from "../../../assets/download.png";
+import { Row } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 
 function Discover() {
   const [allAssignments, setAllAssignments] = useState([]);
   useEffect(() => {
     async function getDiscoverAssignments() {
-      
-
-      getDocs(collection(db, 'discoverAssignments'))
+      getDocs(collection(db, "discoverAssignments"))
         .then((querySnapshot) => {
           console.log("querysnapshot", querySnapshot);
           if (querySnapshot.size === 0) {
@@ -33,10 +33,9 @@ function Discover() {
             querySnapshot.forEach((doc) => {
               tempAssignments.push({ id: doc.id, ...doc.data() });
             });
-            console.log(tempAssignments)
-            setAllAssignments(tempAssignments)
+            console.log(tempAssignments);
+            setAllAssignments(tempAssignments);
           }
-          
         })
         .catch((error) => {
           console.log("Error getting collection:", error);
@@ -47,57 +46,68 @@ function Discover() {
   }, []);
 
   return (
-        <div class="center">
-          <div class="row" id="DiscoverHeader">
-            <div class="col-6">
-              <h1 style={{padding:'36px 0px'}} id="DiscoverHeaderText">Discover what other professors, teachers, and alike are up to</h1>
-            </div>
-            <div class="col">
-              <img style={{width:'100%'}} src={ExploreAssignments}></img>
-            </div>
-          </div>
-
-          <div style={{margin:'30px', display: 'flex', justifyContent:'flex-start', gap: '20px'}}>
-            <form>
-              <label for="gsearch"></label>
-              <input type="search" placeholder="Search for an Assignment..." id="gsearch"/>
-            </form>
-
-            <select class="categoryDropDown">
-              <option class="categoryDropDownChoice">Sort A-Z</option>
-              <option class="categoryDropDownChoice">Sort Z-A</option>
-            </select>
-          </div>
-          
-          <div style={{margin:'30px', display: 'flex', justifyContent:'space-evenly', gap: '20px'}}>
-            <Card class="card">
-              <Card.Title class='card-title'>Understanding the World Through Marxist Lens</Card.Title>
-              <Card.Subtitle class='card-subtitle'>By: Carlene Adams</Card.Subtitle>
-              <Card.Text class='card-text'>
-                This assignment explores the use of marxist theory and lens to analyze the inner workings of literacture that has been used to impact the world in a positive manner. This has been inspired by the... idk what this is lorem ipsum this is just for testing purposes will this overflow?
-              </Card.Text>
-              <a href="/grade"><Button variant="primary">Use Assignment</Button></a>
-            </Card>
-            <Card class="card">
-              <Card.Title class="card-title">How Has the World  Been Influenced by the novel 1984?</Card.Title>
-              <Card.Subtitle class="card-subtitle">By: Jackson James</Card.Subtitle>
-              <Card.Text class="card-text">
-                This assignment explores the use of authoritarian rule to analyze the inner workings of literature that has been used to impact the world in a positive manner. This has been inspired by the...
-              </Card.Text>
-              <a href="/grade"><Button variant="primary">Use Assignment</Button></a>
-            </Card>
-            <Card class="card">
-              <Card.Title class="card-title">The Fundamental Philosophical Natures</Card.Title>
-              <Card.Text class="card-subtitle">By: Maxine Deans</Card.Text>
-              <Card.Text class="card-text">
-                This assignment explores the use of authoritarian rule to analyze the inner workings of literature that has been used to impact the world in a positive manner. This has been inspired by the...
-              </Card.Text>
-              <a href="/grade"><Button variant="primary">Use Assignment</Button></a>
-            </Card>
-          </div>
-
-          <Button variant="primary">Find More Inspiration</Button>
+    <Container fluid id="container" style={{paddingTop: '30px'}}>
+      <Row id="DiscoverHeader">
+        <div class="col-6">
+          <h1 style={{ padding: "36px 0px" }} id="DiscoverHeaderText">
+            Discover what other professors, teachers, and alike are up to
+          </h1>
         </div>
+        <div class="col">
+          <img
+            alt="Explore"
+            style={{ width: "100%" }}
+            src={ExploreAssignments}
+          ></img>
+        </div>
+      </Row>
+
+      <Row
+        style={{
+          margin: "30px",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-start",
+            gap: "20px",
+          }}
+        >
+          <form>
+            <label for="gsearch"></label>
+            <input
+              type="search"
+              placeholder="Search for an Assignment..."
+              id="gsearch"
+            />
+          </form>
+        </div>
+      </Row>
+
+      <Row
+        style={{
+          minHeight: "75vh",
+          height: "100%",
+          margin: "0 30px",
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-start",
+          alignItems: "flex-start",
+        }}
+      >
+        {allAssignments &&
+          allAssignments.map((item) => (
+            <AssignmentItem
+              title={item.title}
+              id={item.id}
+              key={item.id}
+              criteria={item.criteria}
+            />
+          ))}
+      </Row>
+    </Container>
   );
 }
 
