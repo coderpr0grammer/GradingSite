@@ -114,11 +114,10 @@ export default function Home() {
                 /> : <Button variant="outline-success" onClick={()=> navigate('my-assignments')}>Go to Assignments</Button>}
               </div>
               <h1 style={{ color: "#29509C", fontSize: 20, fontWeight: 1000 }}>
-              <br></br>
-              <br></br>
-                - Quickly mark texts <br></br>
-                - Collection of student works <br></br>
-                - Revolutionize marking with GradingSite
+              <p class="bulletPoints">• Streamline the grading and evaluation of media</p>
+              <p class="bulletPoints">• Efficiently manage the works of numerous student</p>
+              <p class="bulletPoints">• Take control of your precious time</p>
+              <a class="btn btn-primary" id="homeTryBtn" href="my-assignments" role="button">Try Now</a>
               </h1>
               
             </div>
