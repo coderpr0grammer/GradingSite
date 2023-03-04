@@ -15,7 +15,6 @@ import {
     BarElement,
     Title,
   );
-
 function BarGraph(props) {
     const data = {
         labels: ['Grammar', 'Structure', 'Thinking'],
