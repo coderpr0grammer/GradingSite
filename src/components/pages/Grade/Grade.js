@@ -210,7 +210,6 @@ const Grade = () => {
                       width: "100%",
                       borderRadius: "5px",
                       padding: "15px ",
-                      background: "#f7fff7",
                     }}
                     placeholder="Paste the assignment here"
                     value={assignmentText}

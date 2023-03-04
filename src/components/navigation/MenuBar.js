@@ -10,6 +10,7 @@ import { collection, setDoc, getDoc, doc } from "firebase/firestore";
 import { GoogleLogin } from "@react-oauth/google";
 import { app, db } from "../../utils/firebaseConfig";
 import { AuthenticationContext } from "../../infrastructure/Authentication/authentication.context";
+import theme from "../../infrastructure/theme";
 
 import {
   getAuth,
@@ -125,7 +126,6 @@ function MenuBar() {
                 Grade
               </span>
             </Nav.Link>
-            <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
           </Nav>
         </Navbar.Collapse>
       </Container>
