@@ -11,6 +11,12 @@ function MyAssignments() {
       <header className="App-header">
       <h1>Grade Your Papers Now</h1>
       var essay = prompt("Essay", "Insert your text here, upload a file, or scan a paper to start the evaluation...");
+
+      <h3>Create Input Box</h3>
+        <input type="text" id="myName" placeholder="Enter Name"/>
+        <button id="btn">Save</button>
+        <script src="code.js"></script>
+
         <PieChart width={400} height={400}>
         <Pie data={donutData} dataKey="score" outerRadius={170} fill="#1B0166" innerRadius={100} startAngle={90} endAngle={90 + donutData[0].score*3.6}/>
         </PieChart>
