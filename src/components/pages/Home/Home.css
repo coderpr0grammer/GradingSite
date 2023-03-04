@@ -21,3 +21,21 @@
     left: 220px;
     margin-top: 15px;
 }
+
+.main-title {
+    color: #28A334;
+    font-size: 80px;
+    font-weight: 1000;
+}
+
+.main-subtitle {
+    color: #0E1162;
+    font-size: 60px;
+    font-weight: 1000;
+}
+
+.main-text {
+    color: #29509C;
+    font-size: 27px;
+    font-weight: 1000;
+}
