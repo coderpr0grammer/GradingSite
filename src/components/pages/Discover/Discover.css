@@ -1,31 +1,22 @@
 #DiscoverHeader{
+color: #EBF1EC;
+background: #7FBFE2;
+
+padding: 30px;
+border-radius: 25px;
+margin: 40px;
+}
+
+#DiscoverHeaderText{
     font-family: 'Inter';
 font-style: normal;
 font-weight: 700;
-font-size: 64px;
+font-size: 75px;
 line-height: 77px;
+margin-left: 40px;
 
-color: #FBFBFB;
-background: #141996;
-
-padding: 30px;
-border-radius: 25px;
-margin: 40px;
-}
-
-#DiscoverBtn{
-    background: #6ea194;
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 40px;
-line-height: 48px;
-
-color: #FBFBFB;
-padding: 30px;
-border-radius: 25px;
-margin: 40px;
-}
+color: #EBF1EC;
+}   
 
 .cardTitle{
     font-family: 'Inter';
@@ -46,4 +37,58 @@ color: #000000;
     
     color: #000000;
     margin-top: 0.4em;
+}
+
+.singularCard{
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#gsearch{
+    color: black;
+    font-family: 'Inter';
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    left: 88em;
+    margin-bottom: 1.5em;
+}
+
+.categoryDropDown{
+    color: black;
+    font-family: 'Inter';
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    position: relative;
+    left: 45em;
+}
+
+.categoryDropDownChoice{
+    color: black;
+    font-family: 'Inter';
+}
+
+#inspirationBtn{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+text-align: center;
+
+color: #F4FAF3;
+background-color: #28A334;
+font-family: 'Inter';
+padding: 0.4em;
+
+border-radius: 25px;
+margin-top: 25px;
+margin-bottom: 10px;
+}
+
+#inspirationContainer{
+    padding-left: 45em;
+    padding-right: 45em;
 }
