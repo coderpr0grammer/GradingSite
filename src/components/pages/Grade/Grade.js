@@ -476,8 +476,8 @@ const Grade = () => {
             <div>
               <div id="divider"></div>
               <div class="row">
-                <div class="col">
-                  <div
+                <div class="col" id="makingCenter1">
+                  <div id="donutContainerCSS"
                     style={{
                       width: "350px",
                       height: "350px",
@@ -513,7 +513,7 @@ const Grade = () => {
                   </div>
                   <BarGraph />
                 </div>
-                <div class="col" id="makingCenter2">
+                <div class="col">
                   <div id="feedbackBox">
                     <h1 id="feedbackTitle">Media Feedback:</h1>
                     <p class="counts">Word Count: {wordCount} </p>
