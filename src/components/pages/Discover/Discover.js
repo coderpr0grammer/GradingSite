@@ -47,8 +47,6 @@ function Discover() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
         <div class="center">
           <div class="row" id="DiscoverHeader">
             <div class="col-6">
@@ -100,8 +98,6 @@ function Discover() {
 
           <Button variant="primary">Find More Inspiration</Button>
         </div>
-      </header>
-    </div>
   );
 }
 
