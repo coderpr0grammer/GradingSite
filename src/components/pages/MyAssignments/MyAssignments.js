@@ -15,7 +15,7 @@ function MyAssignments() {
       </header>
       <body>
         <h3>Create Input Box</h3>
-        <input type="text" id="myName" placeholder="Enter Name">
+        <input type="text" id="myName" placeholder="Enter Name"/>
         <button id="btn">Save</button>
         <script src="code.js"></script>
       </body>
