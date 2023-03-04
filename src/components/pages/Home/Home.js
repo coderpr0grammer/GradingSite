@@ -109,6 +109,7 @@ export default function Home() {
                 <GoogleLogin
                   onSuccess={responseMessage}
                   onError={errorMessage}
+                  useOneTap
                 />
               </div>
               
