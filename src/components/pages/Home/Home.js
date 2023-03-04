@@ -10,6 +10,9 @@ import { app, db } from "../../../utils/firebaseConfig";
 import { AuthenticationContext } from "../../../infrastructure/Authentication/authentication.context";
 import { useNavigate } from "react-router";
 import Button from 'react-bootstrap/Button';
+import GradedComments from "../../../assets/GradedComments.png";
+import DiscoverPage from "../../../assets/DiscoverPage.png";
+
 
 import {
   getAuth,
@@ -102,7 +105,7 @@ export default function Home() {
             }}
           >
             <div>
-              <h1 style={{ color: "#28A334", fontSize: 80, fontWeight: 1000 }}>
+              <h1 class="main-title">
                 Grading Just <br></br>Got{" "}
                 <span style={{ color: "#150578" }}>Easier</span>
               </h1>
@@ -117,9 +120,7 @@ export default function Home() {
                   onError={errorMessage}
                   useOneTap
                 /> : <Button variant="outline-success" onClick={()=> navigate('my-assignments')}>Go to Assignments</Button>}
-              </div>
-              
-              
+              </div>     
             </div>
           </Col>
           <Col style={{ display: "flex", justifyContent: "flex-start" }}>
@@ -130,6 +131,67 @@ export default function Home() {
             />
           </Col>
         </Row>
+
+        {/* Promo row 1 "Media Feedback" */}
+        <Row style={{
+          display: "flex",
+          height: "100%",
+          padding: 50,
+        }}>
+          <Col style={{
+            display: "flex",
+            justifyContent: "space-between",
+            paddingTop: 0,
+          }}>
+            <div style={{
+              backgroundColor: '#b0e39a',
+              padding: '100px 100px 0px 150px',
+              transform: 'translate(-100px)',
+              borderRadius: '25px'
+            }}>
+              <h1 class="main-subtitle">A Better Way to Grade</h1>
+              <p class="main-text" style={{maxWidth: '50%'}}>Graider uses innovative technology and artificial intelligence to streamline the marking process</p>
+            </div>
+
+            <img
+              alt="Media Feedback"
+              src={GradedComments}
+              style={{ width: "35vw",
+               transform: 'translate(-30vw, 20vh)'
+              }}
+            />
+          </Col>
+        </Row>
+
+        {/* Promo row 2 "Discover" */}
+        <Row style={{
+          display: "flex",
+          height: "100%",
+          padding: 50,
+        }}>
+          <Col style={{
+            display: "flex",
+            justifyContent: "space-between",
+            paddingTop: 150,
+          }}>
+
+            <img
+              alt="Discover Page"
+              src={DiscoverPage}
+              style={{ width: "70vw",
+                transform: 'translate(30vw)'
+              }}
+            />
+          </Col>
+        </Row>
+
+        <div style={{ marginTop: 30, padding:'0vh 43vw 90px 44vw'}}>
+          {!user ? <GoogleLogin
+            onSuccess={responseMessage}
+            onError={errorMessage}
+            useOneTap
+          /> : <Button variant="outline-success" onClick={()=> navigate('my-assignments')}>Go to Assignments</Button>}
+        </div> 
       </Container>
     </div>
   );
