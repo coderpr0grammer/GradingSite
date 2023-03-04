@@ -72,15 +72,15 @@ function Discover() {
           </div>
           
           <div style={{margin:'30px', display: 'flex', justifyContent:'space-evenly', gap: '20px'}}>
-            <Card style={{padding: '30px'}}>
+            <Card class="card">
               <Card.Title class='card-title'>Understanding the World Through Marxist Lens</Card.Title>
               <Card.Subtitle class='card-subtitle'>By: Carlene Adams</Card.Subtitle>
               <Card.Text class='card-text'>
-                This assignment explores the use of marxist theory and lens to analyze the inner workings of literacture that has been used to impact the world in a positive manner. This has been inspired by the...
+                This assignment explores the use of marxist theory and lens to analyze the inner workings of literacture that has been used to impact the world in a positive manner. This has been inspired by the... idk what this is lorem ipsum this is just for testing purposes will this overflow?
               </Card.Text>
               <a href="/grade"><Button variant="primary">Use Assignment</Button></a>
             </Card>
-            <Card style={{padding: '30px'}}>
+            <Card class="card">
               <Card.Title class="card-title">How Has the World  Been Influenced by the novel 1984?</Card.Title>
               <Card.Subtitle class="card-subtitle">By: Jackson James</Card.Subtitle>
               <Card.Text class="card-text">
@@ -88,7 +88,7 @@ function Discover() {
               </Card.Text>
               <a href="/grade"><Button variant="primary">Use Assignment</Button></a>
             </Card>
-            <Card style={{padding: '30px'}}>
+            <Card class="card">
               <Card.Title class="card-title">The Fundamental Philosophical Natures</Card.Title>
               <Card.Text class="card-subtitle">By: Maxine Deans</Card.Text>
               <Card.Text class="card-text">
@@ -98,9 +98,7 @@ function Discover() {
             </Card>
           </div>
 
-          <div id="inspirationContainer">
-              <h1 id="inspirationBtn">Find More Inspiration</h1>
-          </div>
+          <Button variant="primary">Find More Inspiration</Button>
         </div>
       </header>
     </div>
