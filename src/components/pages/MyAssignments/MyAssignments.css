@@ -7,6 +7,10 @@ line-height: 77px;
 
 color: #FBFBFB;
 background: #141996;
+
+padding: 30px;
+border-radius: 25px;
+margin: 40px;
 }
 
 #newAssignementBtn{
@@ -18,5 +22,28 @@ font-size: 40px;
 line-height: 48px;
 
 color: #FBFBFB;
+padding: 30px;
+border-radius: 25px;
+margin: 40px;
 }
 
+.cardTitle{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+}
+
+.cardDesc{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    
+    color: #000000;
+    margin-top: 0.4em;
+}
