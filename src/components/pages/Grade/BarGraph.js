@@ -23,17 +23,17 @@ function BarGraph(props) {
           {
             label: 'Bar 1',
             backgroundColor: '#3E54AC',
-            data: [60, 0, 0],
+            data: [props.grammar, 0, 0],
           },
           {
             label: 'Bar 2',
             backgroundColor: '#655DBB',
-            data: [0, 25, 0],
+            data: [0, props.structure, 0],
           },
           {
             label: 'Bar 3',
             backgroundColor: '#BFACE2',
-            data: [0, 0, 100],
+            data: [0, 0, props.thinking],
           },
         ],
       };
