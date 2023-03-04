@@ -117,7 +117,7 @@ export default function Home() {
               <p class="bulletPoints">• Streamline the grading and evaluation of media</p>
               <p class="bulletPoints">• Efficiently manage the works of numerous student</p>
               <p class="bulletPoints">• Take control of your precious time</p>
-              <a class="btn btn-primary" id="homeTryBtn" href="my-assignments" role="button">Try Now</a>
+              {/* <a class="btn btn-primary" id="homeTryBtn" href="my-assignments" role="button">Try Now</a> */}
               </h1>
               
             </div>
