@@ -9,3 +9,9 @@
 Link {
     text-decoration: none;
 }
+
+.sign-in-button {
+    background-color: #28A334;
+    border-radius: 20px;
+    padding: 0px 20px 0px 20px;
+}
