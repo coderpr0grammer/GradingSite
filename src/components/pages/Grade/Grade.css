@@ -67,3 +67,21 @@ text-align: center;
 color: #FBF3F3;
 background: #9890BA;
 }
+
+#brainLoading {
+    animation: growshrink 1s infinite alternate;
+}
+
+@keyframes growshrink {
+    from {transform: scale(1, 1); }
+    to {transform: scale(1.5, 1.5); }
+}
+
+.fa-trash:hover {
+    transition: 0.4s
+}
+
+.fa-trash:hover {
+    cursor: pointer;
+    color: #c63535
+}

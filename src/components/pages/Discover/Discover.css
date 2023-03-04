@@ -4,7 +4,6 @@ background: #7FBFE2;
 
 padding: 30px;
 border-radius: 25px;
-margin: 40px;
 }
 
 #DiscoverHeaderText{
@@ -17,6 +16,7 @@ margin-left: 40px;
 
 color: #EBF1EC;
 }   
+
 
 .cardTitle{
     font-family: 'Inter';

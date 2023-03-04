@@ -10,10 +10,14 @@ import Form from "react-bootstrap/Form";
 import { ListGroup } from "react-bootstrap";
 import { InputGroup } from "react-bootstrap";
 import { AuthenticationContext } from "../../../infrastructure/Authentication/authentication.context";
-import Brain from '../../../assets/logo.png';
-import Spacer from '../../layout/Spacer'
+import Brain from "../../../assets/logo.png";
+import Spacer from "../../layout/Spacer";
 import { useSearchParams } from "react-router-dom";
 import theme from "../../../infrastructure/theme";
+import { PieChart } from "react-minimal-pie-chart";
+
+import "./Grade.css";
+import { faBorderStyle } from "@fortawesome/free-solid-svg-icons";
 
 const auth = getAuth();
 
@@ -29,10 +33,10 @@ const Grade = () => {
   const [gradeLevel, setGradeLevel] = useState(12);
   const [mark, setMark] = useState(null);
   const [feedback, setFeedback] = useState("");
-  const [title, setTitle] = useState('')
+  const [title, setTitle] = useState("");
   const resultRef = useRef(null);
   const [thisAssignment, setThisAssigment] = useState(null);
-  const [responseParsed, setResponseParsed] = useState(null)
+  const [responseParsed, setResponseParsed] = useState(null);
   const { user, uid, setUser, setUid } = useContext(AuthenticationContext);
   const mountRef = useRef(false);
 
@@ -90,7 +94,6 @@ const Grade = () => {
     console.log("assignmenttext", !assignmentText);
     if (!gradeLevel) return;
     async function setAssignmentTextInDB() {
-      
       const docId = searchParams.get("d");
       const assignmentDocRef = doc(db, `users/${uid}/assignments/${docId}`);
       await updateDoc(assignmentDocRef, {
@@ -101,7 +104,7 @@ const Grade = () => {
   }, [gradeLevel]);
 
   useEffect(() => {
-    console.log('criteria updating in db', criteria)
+    console.log("criteria updating in db", criteria);
     if (criteria.length < 1) return;
     async function setCriteriaInDB() {
       const usersRef = collection(db, "users"); // Reference to the "users" collection
@@ -145,9 +148,11 @@ const Grade = () => {
   }, [uid]);
 
   const gradeAssignment = (e) => {
+    console.log("hi");
     e.preventDefault();
     let criteriaString = "";
     if (criteria.length < 1) {
+      alert("Please enter at least 1 criterion :)");
       return;
     } else {
       setLoading(true);
@@ -156,9 +161,16 @@ const Grade = () => {
       });
       console.log(criteriaString);
 
-      let prompt = [{"role": "system", "content": `You are a strict teacher that will be marking an assignment out of 100%. You must give your response in the format: {"mark": "YOUR_MARK", "feedback": "YOUR_FEEDBACK"}`},
-      {"role": "user", "content": `The student is in grade ${gradeLevel} and has written the following paper: ${assignmentText}` }
-    ]
+      let prompt = [
+        {
+          role: "system",
+          content: `You are a strict teacher that will be marking an assignment out of 100%. You must give your response in the format: {"mark": "YOUR_MARK_WITHOUT_PERCENT_SYMBOL", "feedback": "YOUR_FEEDBACK"}`,
+        },
+        {
+          role: "user",
+          content: `The student is in grade ${gradeLevel} and has written the following paper: ${assignmentText}`,
+        },
+      ];
 
       const response = fetch("https://gradeassist-server.vercel.app/api", {
         method: "POST",
@@ -173,10 +185,10 @@ const Grade = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.content)
-          
+          console.log(data.content);
+
           let responseJSONParsed = JSON.parse(data.content);
-          setResponseParsed(responseJSONParsed)
+          setResponseParsed(responseJSONParsed);
           setMark(responseJSONParsed.mark);
           setFeedback(responseJSONParsed.feedback);
 
@@ -191,8 +203,8 @@ const Grade = () => {
   };
 
   return (
-    <div style={{ background: theme.colors.background, padding: 30}}>
-      <h4 style={{textAlign: 'center'}}>{title && title}</h4>
+    <div style={{ background: theme.colors.background, padding: 30 }}>
+      <h4 style={{ textAlign: "center" }}>{title && title}</h4>
       <Container
         style={{ textAlign: "left", minHeight: "80vh", minWidth: "80vw" }}
       >
@@ -244,9 +256,9 @@ const Grade = () => {
                     >
                       <img
                         src={Brain}
+                        id="brainLoading"
                         alt="Loading"
                         width="120"
-                        id="brainLoading"
                       />
                     </div>
                   )}
@@ -302,10 +314,10 @@ const Grade = () => {
                         style={{
                           padding: 0,
                           borderRadius: "10px",
-                          display: 'flex',
-                          flexDirection: 'row',
-                          justifyContent: 'center',
-                          alignItems: 'center'
+                          display: "flex",
+                          flexDirection: "row",
+                          justifyContent: "center",
+                          alignItems: "center",
                         }}
                       >
                         <input
@@ -325,11 +337,15 @@ const Grade = () => {
                             setCriteria(updatedCriteria);
                           }}
                         />
-                        <i className="fa fa-trash" style={{ flex: 0.2, padding: 20, fontSize: 20 }} onClick={() => {
-                          const updatedCriteria = [...criteria];
-                          updatedCriteria.splice(index, 1)
-                          setCriteria(updatedCriteria);
-                        }}></i>
+                        <i
+                          className="fa fa-trash"
+                          style={{ flex: 0.2, padding: 20, fontSize: 20 }}
+                          onClick={() => {
+                            const updatedCriteria = [...criteria];
+                            updatedCriteria.splice(index, 1);
+                            setCriteria(updatedCriteria);
+                          }}
+                        ></i>
                       </ListGroup.Item>
                     );
                   })}
@@ -358,14 +374,28 @@ const Grade = () => {
         <Row id="result" ref={resultRef}>
           {responseParsed && (
             <div>
-              <h1>Grade: {mark}</h1>
+              <div style={{ width: "200px", height: "200px", borderRadius: '100%' , borderWidth: 10, borderColor: 'red'}}>
+                <PieChart
+                  data={[{ title: mark, value: 1, color: mark > 70 ? "green" : 'orange' }]}
+                  radius={40}
+                  lineWidth={10}
+                  label={({ dataEntry }) => dataEntry.title}
+                  labelPosition={0}
+                  labelStyle={{
+                    fontSize: "30px",
+                    fontWeight: "bold",
+                    fill: mark > 70 ? "green" : 'orange',
+                  }}
+                  animate
+                />
+              </div>
+              <h1>Grade: {mark}%</h1>
               <Spacer size={30} />
               <h1>Feedback:</h1>
               <p>{feedback}</p>
             </div>
           )}
         </Row>
-
       </Container>
     </div>
   );
