@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
 * {
     box-sizing: border-box;
-    font-family: Poppins
+    font-family: 'Inter', sans-serif;
 }
 
 .content-container {
     margin: 2.5rem auto 2.5rem auto;
     max-width: 1126px;
-    min-height: 50vh;
+    min-height: 100vh;
     padding: 10px;
 }
 
@@ -15,12 +17,6 @@ tr, td {
 	vertical-align: baseline;
 }
 
-.row {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    min-height: 480px;
-}
 
 .col-left {
 		text-align: center;

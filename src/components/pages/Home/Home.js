@@ -6,10 +6,12 @@ import "./Home.css";
 
 export default function Home() {
   return (
+    <div id="Home">
     <Container>
       <Row>
         <Col>1 of 1</Col>
       </Row>
     </Container>
+    </div>
   );
 }
