@@ -392,10 +392,14 @@ const Grade = () => {
               </div>
               <BarGraph/>
 
-              <h1>Grade: {mark}%</h1>
               <Spacer size={30} />
-              <h1>Feedback:</h1>
+              <div id="feedbackBox">
+              <h1 id="feedbackTitle">Media Feedback:</h1>
+              <p class="counts">Word Count: </p>
+              <p class="counts">Character Count: </p>
               <p>{feedback}</p>
+              </div>
+              
             </div>
           )}
         </Row>
