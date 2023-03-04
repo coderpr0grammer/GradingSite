@@ -22,17 +22,17 @@ function BarGraph() {
         datasets: [
           {
             label: 'Bar 1',
-            backgroundColor: '#BABD13',
+            backgroundColor: '#3E54AC',
             data: [60, 0, 0],
           },
           {
             label: 'Bar 2',
-            backgroundColor: '#BE3D20',
+            backgroundColor: '#655DBB',
             data: [0, 25, 0],
           },
           {
             label: 'Bar 3',
-            backgroundColor: '#39DD00',
+            backgroundColor: '#BFACE2',
             data: [0, 0, 100],
           },
         ],
