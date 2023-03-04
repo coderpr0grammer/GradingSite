@@ -171,7 +171,6 @@ const Grade = () => {
     getThisDoc();
   }, [uid]);
 
-
   const gradeAssignment = (e) => {
     console.log("hi");
     e.preventDefault();
@@ -276,7 +275,7 @@ const Grade = () => {
     }
   };
 
-  console.log('mark', mark)
+  console.log("mark", mark);
 
   return (
     <div style={{ background: theme.colors.background, padding: 30 }}>
@@ -477,7 +476,7 @@ const Grade = () => {
             <div>
               <div id="divider"></div>
               <div class="row">
-                <div class="col" id="makingCenter1">
+                <div class="col">
                   <div
                     style={{
                       width: "350px",
@@ -495,9 +494,9 @@ const Grade = () => {
                           color: mark > 70 ? "green" : "orange",
                         },
                         {
-                          title: '',
+                          title: "",
                           value: 100 - parseInt(mark),
-                          color: '#F6F9F4',
+                          color: "#F6F9F4",
                         },
                       ]}
                       radius={40}
@@ -512,18 +511,16 @@ const Grade = () => {
                       animate
                     />
                   </div>
-                </div>
-                <div class="col" id="makingCenter2">
                   <BarGraph />
                 </div>
-              </div>
-
-              <Spacer size={30} />
-              <div id="feedbackBox">
-                <h1 id="feedbackTitle">Media Feedback:</h1>
-                <p class="counts">Word Count: {wordCount} </p>
-                <p class="counts">Character Count: {charCount}</p>
-                <p>{feedback}</p>
+                <div class="col" id="makingCenter2">
+                  <div id="feedbackBox">
+                    <h1 id="feedbackTitle">Media Feedback:</h1>
+                    <p class="counts">Word Count: {wordCount} </p>
+                    <p class="counts">Character Count: {charCount}</p>
+                    <p>{feedback}</p>
+                  </div>
+                </div>
               </div>
             </div>
           )}
