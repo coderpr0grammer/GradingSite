@@ -157,7 +157,8 @@ export default function Home() {
               alt="Media Feedback"
               src={GradedComments}
               style={{ width: "35vw",
-               transform: 'translate(-30vw, 20vh)'
+               transform: 'translate(-30vw, 20vh)',
+               filter: 'drop-shadow(2px 14px 25px rgb( 0 0 0 / 30%)'
               }}
             />
           </Col>
