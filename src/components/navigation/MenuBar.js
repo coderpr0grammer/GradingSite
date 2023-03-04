@@ -14,7 +14,9 @@ function MenuBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
-          <Nav.Link style={{textAlign: 'left'}} href="/my-assignments"><span to="/my-assignments" style={{textDecoration: 'none', color: 'grey'}}>My assignments</span></Nav.Link>
+          <Nav.Link style={{textAlign: 'right'}} href="/my-assignments"><span to="/my-assignments" style={{textDecoration: 'none', color: 'white'}}>My Assignments</span></Nav.Link>
+          <Nav.Link style={{textAlign: 'right'}} href="/discover"><span to="/discover" style={{textDecoration: 'none', color: 'white'}}>Discover</span></Nav.Link>
+          <button type="button">Sign in</button>
           </Nav>
         </Navbar.Collapse>
       </Container>
