@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import Button from "react-bootstrap/Button";
-import { collection, setDoc, updateDoc, getDoc, doc } from "firebase/firestore";
+import {
+  collection,
+  setDoc,
+  updateDoc,
+  getDoc,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { db } from "../../../utils/firebaseConfig";
 import Container from "react-bootstrap/Container";
@@ -37,6 +44,7 @@ const Grade = () => {
   const [title, setTitle] = useState("");
   const resultRef = useRef(null);
   const [thisAssignment, setThisAssigment] = useState(null);
+  const [isAssignmentPublished, setIsAssignmentPublished] = useState(false);
   const [responseParsed, setResponseParsed] = useState(null);
   const { user, uid, setUser, setUid } = useContext(AuthenticationContext);
   const mountRef = useRef(false);
@@ -65,6 +73,21 @@ const Grade = () => {
       setUser(u);
       setUid(u.uid);
     });
+    async function checkIfDocPublished() {
+      const docId = searchParams.get("d");
+      const docRef = doc(db, `discoverAssignments/${docId}`);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        console.log("exists");
+        setIsAssignmentPublished(true);
+        // document exists
+      } else {
+        console.log("not exists");
+        // document does not exist
+        setIsAssignmentPublished(false);
+      }
+    }
+    checkIfDocPublished();
   }, []);
 
   const changeCriterion = (value, index) => {
@@ -148,9 +171,6 @@ const Grade = () => {
     getThisDoc();
   }, [uid]);
 
-
-  
-
   const gradeAssignment = (e) => {
     console.log("hi");
     e.preventDefault();
@@ -176,32 +196,37 @@ const Grade = () => {
         },
       ];
 
-      const response = fetch("https://gradeassist-yrhacks-server.vercel.app/api", {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: JSON.stringify({
-          prompt: prompt,
-        }),
-      })
+      const response = fetch(
+        "https://gradeassist-yrhacks-server.vercel.app/api",
+        {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: JSON.stringify({
+            prompt: prompt,
+          }),
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
-          console.log('response', data.content);
+          console.log("response", data.content);
 
           try {
             let responseJSONParsed = JSON.parse(data.content);
-          setResponseParsed(responseJSONParsed);
-          setMark(responseJSONParsed.mark);
-          setFeedback(responseJSONParsed.feedback);
+            setResponseParsed(responseJSONParsed);
+            setMark(responseJSONParsed.mark);
+            setFeedback(responseJSONParsed.feedback);
 
-          resultRef.current.scrollIntoView({ behavior: "smooth" });
+            resultRef.current.scrollIntoView({ behavior: "smooth" });
           } catch (err) {
-            alert('Oops! We ran into an issue trying to mark your assignment. Try again please!')
+            alert(
+              "Oops! We ran into an issue trying to mark your assignment. Try again please!"
+            );
           }
-          
+
           setLoading(false);
         })
         .catch((err) => {
@@ -211,21 +236,73 @@ const Grade = () => {
     }
   };
 
-  function WordCount(str) { 
+  function WordCount(str) {
     return str.split(" ").length;
   }
 
   let wordCount = WordCount(assignmentText);
 
-  function CharCount(str) { 
+  function CharCount(str) {
     return str.length;
   }
 
   let charCount = CharCount(assignmentText);
 
+  const publishOrRemoveThisAssignment = () => {
+    const docId = searchParams.get("d");
+    if (isAssignmentPublished) {
+      setIsAssignmentPublished(false);
+      async function deleteAssignment() {
+        await deleteDoc(doc(db, `discoverAssignments/${docId}`), {
+          title,
+          gradeLevel,
+          criteria,
+        });
+      }
+
+      deleteAssignment();
+    } else {
+      setIsAssignmentPublished(true);
+
+      async function addDocToPublishedAssignments() {
+        await setDoc(doc(db, `discoverAssignments/${docId}`), {
+          title,
+          gradeLevel,
+          criteria,
+        });
+      }
+      addDocToPublishedAssignments();
+    }
+  };
+
   return (
     <div style={{ background: theme.colors.background, padding: 30 }}>
-      <h4 style={{ textAlign: "center" }}>{title && title}</h4>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <h4 style={{ textAlign: "center" }}>{title && title}</h4>
+        <Button
+          variant={isAssignmentPublished ? "outline-danger" : "outline-success"}
+          onClick={() => publishOrRemoveThisAssignment()}
+        >
+          <i
+            className={
+              isAssignmentPublished
+                ? "fa-regular fa-square-minus"
+                : "fa-solid fa-upload"
+            }
+            style={{ alignSelf: "center" }}
+          ></i>
+          &nbsp;
+          {isAssignmentPublished
+            ? "Remove from Discover"
+            : "Publish to Discover"}
+        </Button>
+      </div>
       <Container
         style={{ textAlign: "left", minHeight: "80vh", minWidth: "80vw" }}
       >
@@ -295,7 +372,6 @@ const Grade = () => {
                 >
                   Mark
                 </Button>
-                
               </div>
             </Col>
             <Col
@@ -399,7 +475,7 @@ const Grade = () => {
               
 <div id="divider"></div>
               <div class="row">
-    <div class="col" id="makingCenter1">
+    <div class="col">
     <div style={{ width: "350px", height: "350px",  borderRadius: '100%' , borderWidth: 10, borderColor: 'red'}}>
                 <PieChart
                   data={[{ title: mark, value: 1, color: mark > 70 ? "green" : 'orange' }]}
@@ -416,7 +492,7 @@ const Grade = () => {
                 />
               </div>
     </div>
-    <div class="col" id="makingCenter2" >
+    <div class="col">
     <BarGraph/>
     </div>
   </div>
@@ -430,7 +506,6 @@ const Grade = () => {
               <p class="counts">Character Count: {charCount}</p>
               <p>{feedback}</p>
               </div>
-              
             </div>
           )}
         </Row>
