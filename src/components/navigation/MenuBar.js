@@ -118,14 +118,6 @@ function MenuBar() {
                 Discover
               </span>
             </Nav.Link>
-            <Nav.Link style={{ textAlign: "right", padding: "8px 50px 0px 0px"}} href="/grade">
-              <span
-                to="/grade"
-                style={{ textDecoration: "none", color: "white" }}
-              >
-                Grade
-              </span>
-            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
