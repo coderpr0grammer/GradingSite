@@ -85,7 +85,7 @@ export default function Home() {
 
   return (
     <div id="Home">
-      <Container fluid id="container" style={{ height: "100%" }}>
+      <Container fluid id="container" style={{ height: "100%", minHeight: '72.5vh' }}>
         <Row
           style={{
             display: "flex",
@@ -109,6 +109,7 @@ export default function Home() {
                 <GoogleLogin
                   onSuccess={responseMessage}
                   onError={errorMessage}
+                  useOneTap
                 />
               </div>
               
