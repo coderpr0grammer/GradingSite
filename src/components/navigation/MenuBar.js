@@ -95,7 +95,7 @@ function MenuBar() {
         <Navbar.Brand>
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             <img src={Logo} width="50" />
-            &nbsp;&nbsp;&nbsp;GradingSite
+            &nbsp;&nbsp;&nbsp;Graider
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
