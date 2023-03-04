@@ -122,14 +122,14 @@ const Assignments = () => {
           alignItems: "flex-start",
         }}
       >
-        {assignments.length > 0 ? assignments.map((item) => (
+        {assignments && assignments.map((item) => (
           <AssignmentItem
             title={item.title}
             id={item.id}
             key={item.id}
             criteria={item.criteria}
           />
-        )) : <h5 style={{textAlign: 'center'}} className="text-muted">You have no assignments yet. <br></br>Why not create one now?</h5>}
+        ))}
       </Row>
     </Container>
   );

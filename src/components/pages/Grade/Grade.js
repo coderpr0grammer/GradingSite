@@ -255,7 +255,7 @@ const Grade = () => {
                 <Button
                   type="submit"
                   disabled={loading}
-                  variant="outline-success"
+                  variant="success"
                   id="button-addon2"
                   style={{ flex: 0.5, margin: "5px 0" }}
                   onClick={gradeAssignment}
@@ -284,7 +284,6 @@ const Grade = () => {
                   value={gradeLevel}
                   onChange={(event) => setGradeLevel(event.target.value)}
                   placeholder="12"
-                  style={{ background: "#f7fff7" }}
                 />
               </Form.Group>
               <Spacer size={50} />
@@ -303,7 +302,6 @@ const Grade = () => {
                         style={{
                           padding: 0,
                           borderRadius: "10px",
-                          background: "#f7fff7",
                           display: 'flex',
                           flexDirection: 'row',
                           justifyContent: 'center',
@@ -343,7 +341,6 @@ const Grade = () => {
                     aria-describedby="basic-addon2"
                     value={criteriaValue}
                     onChange={(event) => setCriteriaValue(event.target.value)}
-                    style={{ background: "#f7fff7" }}
                   />
                   <Button
                     variant="outline-success"
