@@ -6,3 +6,52 @@
     color: #1B0166;
     font: bolder;
 }
+
+#mediaHeader{
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 64px;
+line-height: 77px;
+
+color: #F2F2F2;
+background: #141996;
+}
+
+#feedbackContainer{
+    background: #EEEBF8;
+    padding: 2em;
+    
+}
+
+.wordValue{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+color: #4B0A9C;
+}
+
+#feedbackText{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+
+color: #000000;
+}
+
+#feedbackSummary{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+
+color: #FBF3F3;
+background: #9890BA;
+}

@@ -29,7 +29,13 @@ function MyAssignments() {
   <Bar dataKey="Amount" fill="#8884d8" />
 </BarChart>
 
-
+    <div id="feedbackContainer">
+    <h1 id="mediaHeader">Media Feedback</h1>
+    <h3 class="wordValue">Word Count: 2318</h3>
+    <h3 class="wordValue">Character Count: 23354</h3>
+    <p id="feedbackText">Information goes here</p>
+    <h3 id="feedbackSummary">Summary: GradeAssist thinks you have (surpassed/sufficiently met/not met) expectations</h3>
+    </div>
 
     </header>
     </div>
