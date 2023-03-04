@@ -19,25 +19,17 @@
     color: #EBF1EC;
 }   
 
-.cardTitle{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 39px;
-
-    color: #000000;
+.card-title {
+    font-size: 40px;
+    line-height: 52px;
 }
 
-.cardDesc{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
+.card-subtitle {
+    line-height: 42px;
+}
+
+.card-text {
     font-size: 20px;
-    line-height: 24px;
-    
-    color: #000000;
-    margin-top: 0.4em;
 }
 
 .singularCard{
@@ -87,6 +79,8 @@
     padding: 5%;  
 }
 
-.center-child {
-    
+.discover-card {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 20px;
 }

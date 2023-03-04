@@ -71,44 +71,31 @@ function Discover() {
             </select>
           </div>
           
-            
-          <div class="row">
-            <div class="col">
-              <Card style={{ width: '18rem' }}>
-                <Card.Body>
-                  <Card.Title class="cardTitle">Understanding the World Through Marxist Lens</Card.Title>
-                  <Card.Text class="cardDesc">By: Carlene Adams</Card.Text>
-                  <Card.Text class="cardDesc">
-                    This assignment explores the use of marxist theory and lens to analyze the inner workings of literacture that has been used to impact the world in a positive manner. This has been inspired by the...
-                  </Card.Text>
-                  <a href="/grade"><Button variant="primary">Use Assignment</Button></a>
-                </Card.Body>
-              </Card>
-            </div>
-            <div class="col">
-              <Card style={{ width: '18rem' }}>
-                <Card.Body>
-                  <Card.Title class="cardTitle">How Has the World  Been Influenced by the novel 1984?</Card.Title>
-                  <Card.Text class="cardDesc">By: Jackson James</Card.Text>
-                  <Card.Text class="cardDesc">
-                    This assignment explores the use of authoritarian rule to analyze the inner workings of literature that has been used to impact the world in a positive manner. This has been inspired by the...
-                  </Card.Text>
-                  <a href="/grade"><Button variant="primary">Use Assignment</Button></a>
-                </Card.Body>
-              </Card>
-            </div>
-            <div class="col">
-              <Card style={{ width: '18rem' }}>
-                <Card.Body>
-                  <Card.Title class="cardTitle">The Fundamental Philosophical Natures</Card.Title>
-                  <Card.Text class="cardDesc">By: Maxine Deans</Card.Text>
-                  <Card.Text class="cardDesc">
-                    This assignment explores the use of authoritarian rule to analyze the inner workings of literature that has been used to impact the world in a positive manner. This has been inspired by the...
-                  </Card.Text>
-                  <a href="/grade"><Button variant="primary">Use Assignment</Button></a>
-                </Card.Body>
-              </Card>
-            </div>
+          <div style={{margin:'30px', display: 'flex', justifyContent:'space-evenly', gap: '20px'}}>
+            <Card style={{padding: '30px'}}>
+              <Card.Title class='card-title'>Understanding the World Through Marxist Lens</Card.Title>
+              <Card.Subtitle class='card-subtitle'>By: Carlene Adams</Card.Subtitle>
+              <Card.Text class='card-text'>
+                This assignment explores the use of marxist theory and lens to analyze the inner workings of literacture that has been used to impact the world in a positive manner. This has been inspired by the...
+              </Card.Text>
+              <a href="/grade"><Button variant="primary">Use Assignment</Button></a>
+            </Card>
+            <Card style={{padding: '30px'}}>
+              <Card.Title class="card-title">How Has the World  Been Influenced by the novel 1984?</Card.Title>
+              <Card.Subtitle class="card-subtitle">By: Jackson James</Card.Subtitle>
+              <Card.Text class="card-text">
+                This assignment explores the use of authoritarian rule to analyze the inner workings of literature that has been used to impact the world in a positive manner. This has been inspired by the...
+              </Card.Text>
+              <a href="/grade"><Button variant="primary">Use Assignment</Button></a>
+            </Card>
+            <Card style={{padding: '30px'}}>
+              <Card.Title class="card-title">The Fundamental Philosophical Natures</Card.Title>
+              <Card.Text class="card-subtitle">By: Maxine Deans</Card.Text>
+              <Card.Text class="card-text">
+                This assignment explores the use of authoritarian rule to analyze the inner workings of literature that has been used to impact the world in a positive manner. This has been inspired by the...
+              </Card.Text>
+              <a href="/grade"><Button variant="primary">Use Assignment</Button></a>
+            </Card>
           </div>
 
           <div id="inspirationContainer">

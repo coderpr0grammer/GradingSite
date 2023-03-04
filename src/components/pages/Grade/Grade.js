@@ -512,9 +512,10 @@ const Grade = () => {
 
               <Spacer size={30} />
               <div id="feedbackBox">
-                <h1 id="feedbackTitle">Media Feedback:</h1>
-                <p class="counts">Word Count: {wordCount} </p>
-                <p class="counts">Character Count: {charCount}</p>
+              <h1 id="feedbackTitle">Media Feedback:</h1>
+              <p class="counts">Word Count: {wordCount} </p>
+              <p class="counts">Character Count: {charCount}</p>
+              <p>{feedback}</p>
               </div>
             </div>
           )}
