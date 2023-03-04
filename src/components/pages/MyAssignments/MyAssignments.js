@@ -1,25 +1,68 @@
 import React from "react";
 import "./MyAssignments.css";
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 function MyAssignments() {
 
   return (
     <div className="App">
       <header className="App-header">
-      <h1 id="myAssignmentsHeader">Grade Your Papers Now</h1>
-      <h1 id="newAssignementBtn">New Assignment</h1>
+      
+      
+      
+      <div class="row">
+    <div class="col-8">
+    <h1 id="myAssignmentsHeader">Grade Your Papers Now</h1>
+    </div>
+    <div class="col">
+      {/* //ISSUE: should have img plus icon here */}
+    <h1 id="newAssignementBtn">New Assignment</h1>
+    </div>
+  </div>
+  
 
-      <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="1984.jpg" />
+  <div class="row">
+    <div class="col">
+    <Card style={{ width: '18rem' }}>
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+        <Card.Title class="cardTitle">Card Title</Card.Title>
+        <Card.Text class="cardDesc">
+          Description of stuff goes here
         </Card.Text>
+        <a href="/grade">
+        <Button variant="primary">Use Existing</Button>
+      </a>
       </Card.Body>
     </Card>
+    </div>
+    <div class="col">
+    <Card style={{ width: '18rem' }}>
+      <Card.Body>
+        <Card.Title class="cardTitle">Card Title</Card.Title>
+        <Card.Text class="cardDesc">
+          Description of stuff goes here
+        </Card.Text>
+        <a href="/grade">
+        <Button variant="primary">Use Existing</Button>
+      </a>
+      </Card.Body>
+    </Card>
+    </div>
+    <div class="col">
+    <Card style={{ width: '18rem' }}>
+      <Card.Body>
+        <Card.Title class="cardTitle">Card Title</Card.Title>
+        <Card.Text class="cardDesc">
+          Description of stuff goes here
+        </Card.Text>
+        <a href="/grade">
+        <Button variant="primary">Use Existing</Button>
+      </a>
+      </Card.Body>
+    </Card>
+    </div>
+  </div>
 
 
 
