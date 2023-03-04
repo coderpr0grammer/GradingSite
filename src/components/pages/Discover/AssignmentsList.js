@@ -11,7 +11,7 @@ const AssignmentsList = ({ assignments }) => {
           margin: "0 30px",
           display: "flex",
           flexDirection: "row",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           alignItems: "flex-start",
         }}
       >
