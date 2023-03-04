@@ -8,7 +8,6 @@ function MyAssignments() {
   return (
     <div className="App">
       <header className="App-header">
-      <p id="demo">Grade Your Papers Now</p>
         <PieChart width={700} height={700}>
         <Pie data={data} dataKey="score" outerRadius={250} fill="#ECF8E5" innerRadius={150} startAngle={90} endAngle={450}/>
         </PieChart>
