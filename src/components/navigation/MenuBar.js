@@ -93,25 +93,44 @@ function MenuBar() {
     >
       <Container fluid>
         <Navbar.Brand>
-          <Link to="/" style={{ textDecoration: "none", color: "white", display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
+              color: "white",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <img src={Logo} width="50" />
-            &nbsp;<span style={{fontSize: 30}}>Gr<span style={{fontWeight: 800, color: '#28A745'}}>ai</span>der</span>
+            &nbsp;
+            <span style={{ fontSize: 30 }}>
+              Gr<span style={{ fontWeight: 800, color: "#28A745" }}>ai</span>der
+            </span>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
         <Navbar.Collapse className="justify-content-end">
           <Nav>
-            <Nav.Link style={{ textAlign: "right", padding: "8px 50px 0px 0px"}} href="/my-assignments">
-              <span
-                to="/my-assignments"
-                style={{ textDecoration: "none", color: "white" }}
+            {user && (
+              <Nav.Link
+                style={{ textAlign: "right", padding: "8px 50px 0px 0px" }}
+                href="/my-assignments"
               >
-                <i className="fa-solid fa-book"></i> &nbsp;
-                My Assignments
-              </span>
-            </Nav.Link>
-            <Nav.Link style={{ textAlign: "right", padding: "8px 50px 0px 0px"}} href="/discover">
+                <span
+                  to="/my-assignments"
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  <i className="fa-solid fa-book"></i> &nbsp; My Assignments
+                </span>
+              </Nav.Link>
+            )}
+            <Nav.Link
+              style={{ textAlign: "right", padding: "8px 50px 0px 0px" }}
+              href="/discover"
+            >
               <span
                 to="/discover"
                 style={{ textDecoration: "none", color: "white" }}
