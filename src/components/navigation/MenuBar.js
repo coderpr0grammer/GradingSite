@@ -18,7 +18,7 @@ function MenuBar() {
         <Nav>
           <Nav.Link style={{textAlign: 'right'}} href="/my-assignments"><span to="/my-assignments" style={{textDecoration: 'none', color: 'white'}}>My Assignments</span></Nav.Link>
           <Nav.Link style={{textAlign: 'right'}} href="/discover"><span to="/discover" style={{textDecoration: 'none', color: 'white'}}>Discover</span></Nav.Link>
-          <Button variant="primary" class="sign-in-button"> Sign in </Button>
+          <button class="sign-in-button"> Sign in </button>
           </Nav>
         </Navbar.Collapse>
       </Container>

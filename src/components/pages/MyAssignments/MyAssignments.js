@@ -11,6 +11,10 @@ function MyAssignments() {
       <header className="App-header">
         <PieChart width={400} height={400}>
         <Pie data={donutData} dataKey="score" outerRadius={170} fill="#1B0166" innerRadius={100} startAngle={90} endAngle={90 + donutData[0].score*3.6}/>
+      <h1>Grade Your Papers Now</h1>
+      var essay = prompt("Essay", "Insert your text here, upload a file, or scan a paper to start the evaluation...");
+        <PieChart width={700} height={700}>
+        <Pie data={data} dataKey="score" outerRadius={250} fill="#ECF8E5" innerRadius={150} startAngle={90} endAngle={450}/>
         </PieChart>
         <p id="gradeLabel" >{donutData[0].score}%</p>
 
