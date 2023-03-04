@@ -399,7 +399,7 @@ const Grade = () => {
               
 <div id="divider"></div>
               <div class="row">
-    <div class="col">
+    <div class="col" id="makingCenter1">
     <div style={{ width: "350px", height: "350px",  borderRadius: '100%' , borderWidth: 10, borderColor: 'red'}}>
                 <PieChart
                   data={[{ title: mark, value: 1, color: mark > 70 ? "green" : 'orange' }]}
@@ -416,7 +416,7 @@ const Grade = () => {
                 />
               </div>
     </div>
-    <div class="col">
+    <div class="col" id="makingCenter2" >
     <BarGraph/>
     </div>
   </div>
