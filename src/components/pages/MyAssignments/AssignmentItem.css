@@ -15,7 +15,8 @@
     background-color: 'black';
   }
   
-  .AssignmentCard {
+  .assignmentCard {
+    margin: 10px;
     padding: 10px;
     transition: 0.2s;
   }

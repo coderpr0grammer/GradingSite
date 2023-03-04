@@ -40,6 +40,9 @@ const Grade = () => {
   const [assignmentText, setAssignmentText] = useState("");
   const [gradeLevel, setGradeLevel] = useState(12);
   const [mark, setMark] = useState(0);
+  const [grammar, setGrammar] = useState(0);
+  const [structure, setStructure] = useState(0);
+  const [thinking, setThinking] = useState(0)
   const [feedback, setFeedback] = useState("");
   const [title, setTitle] = useState("");
   const resultRef = useRef(null);
@@ -172,6 +175,10 @@ const Grade = () => {
   }, [uid]);
 
   const gradeAssignment = (e) => {
+    if (!assignmentText) {
+      alert ('Don\'t forget to paste the assignment!');
+      return;
+    }
     console.log("hi");
     e.preventDefault();
     let criteriaString = "";
@@ -188,7 +195,7 @@ const Grade = () => {
       let prompt = [
         {
           role: "system",
-          content: `You are a strict teacher and writing expert that will be marking an assignment out of 100%. You must give your response in the following JSON format: {"mark": "YOUR_MARK_WITHOUT_PERCENT_SYMBOL", "feedback": "YOUR_FEEDBACK"}`,
+          content: `You are a strict teacher and writing expert that will be marking an assignment out of 100%, as well as 3 pillars of grammar, structure and thinking. You must give your response in the following JSON format: {"overall_mark": "YOUR_MARK_WITHOUT_PERCENT_SYMBOL", "feedback": "YOUR_FEEDBACK", "grammar": "YOUR_GRAMMAR_MARK_WITHOUT_PERCENT_SYMBOL", "structure": "STRUCTURE_MARK_WITHOUT_PERCENT", "thinking": "YOUR_THINKING_WITHOUT_PERCENT_SYMBOL"}`,
         },
         {
           role: "user",
@@ -217,7 +224,7 @@ const Grade = () => {
           try {
             let responseJSONParsed = JSON.parse(data.content);
             setResponseParsed(responseJSONParsed);
-            setMark(responseJSONParsed.mark);
+            setMark(responseJSONParsed.overall_mark);
             setFeedback(responseJSONParsed.feedback);
 
             resultRef.current.scrollIntoView({ behavior: "smooth" });
@@ -478,44 +485,49 @@ const Grade = () => {
               <div id="divider"></div>
               <div class="row">
                 <div class="col" id="makingCenter1">
-                  <div id="donutContainerCSS"
+                  <div
+                    id="donutContainerCSS"
                     style={{
-                      width: "350px",
-                      height: "350px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
                       borderRadius: "100%",
                       borderWidth: 10,
                       borderColor: "red",
                     }}
                   >
-                    <PieChart
-                      data={[
-                        {
-                          title: `${mark}%`,
-                          value: parseInt(mark),
-                          color: mark > 70 ? "green" : "orange",
-                        },
-                        {
-                          title: "",
-                          value: 100 - parseInt(mark),
-                          color: mark > 0 ? "#F6F9F4" : 'gray',
-                        },
-                      ]}
-                      radius={40}
-                      lineWidth={10}
-                      label={({ dataEntry }) => dataEntry.title}
-                      labelPosition={0}
-                      labelStyle={{
-                        fontSize: "30px",
-                        fontWeight: "bold",
-                        fill: mark > 70 ? "green" : "orange",
-                      }}
-                      animate
-                    />
+                    <h1>Grade:</h1>
+                    <div style={{ maxWidth: "300px" }}>
+                      <PieChart
+                        data={[
+                          {
+                            title: `${mark}%`,
+                            value: parseInt(mark),
+                            color: mark > 70 ? "green" : "orange",
+                          },
+                          {
+                            title: "",
+                            value: 100 - parseInt(mark),
+                            color: mark > 0 ? "#F6F9F4" : "rgba(0 0 0 / 10%)",
+                          },
+                        ]}
+                        radius={40}
+                        lineWidth={10}
+                        label={({ dataEntry }) => dataEntry.title}
+                        labelPosition={0}
+                        labelStyle={{
+                          fontSize: "30px",
+                          fontWeight: "bold",
+                          fill: mark > 70 ? "green" : "orange",
+                        }}
+                        animate
+                      />
+                    </div>
                   </div>
-                  <BarGraph />
+                  <BarGraph grammar={responseParsed.grammar} structure={responseParsed.structure} thinking={responseParsed.thinking}/>
                 </div>
                 <div class="col">
-                  <div id="feedbackBox">
+                  <div id="feedbackBox" style={{ minHeight: "80%" }}>
                     <h1 id="feedbackTitle">Media Feedback:</h1>
                     <p class="counts">Word Count: {wordCount} </p>
                     <p class="counts">Character Count: {charCount}</p>

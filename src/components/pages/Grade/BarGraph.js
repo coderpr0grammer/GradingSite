@@ -16,24 +16,24 @@ import {
     Title,
   );
 
-function BarGraph() {
+function BarGraph(props) {
     const data = {
         labels: ['Grammar', 'Structure', 'Thinking'],
         datasets: [
           {
             label: 'Bar 1',
             backgroundColor: '#BABD13',
-            data: [60, 0, 0],
+            data: [props.grammar, 0, 0],
           },
           {
             label: 'Bar 2',
             backgroundColor: '#BE3D20',
-            data: [0, 25, 0],
+            data: [0, props.structure, 0],
           },
           {
             label: 'Bar 3',
             backgroundColor: '#39DD00',
-            data: [0, 0, 100],
+            data: [0, 0, props.thinking],
           },
         ],
       };
