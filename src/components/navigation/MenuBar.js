@@ -93,9 +93,9 @@ function MenuBar() {
     >
       <Container fluid>
         <Navbar.Brand>
-          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+          <Link to="/" style={{ textDecoration: "none", color: "white", display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <img src={Logo} width="50" />
-            &nbsp;&nbsp;&nbsp;Graider
+            &nbsp;<span style={{fontSize: 30}}>Gr<span style={{fontWeight: 800, color: '#28A745'}}>ai</span>der</span>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

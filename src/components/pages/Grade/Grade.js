@@ -254,6 +254,7 @@ const Grade = () => {
       setIsAssignmentPublished(false);
       async function deleteAssignment() {
         await deleteDoc(doc(db, `discoverAssignments/${docId}`), {
+          owner: uid,
           title,
           gradeLevel,
           criteria,
