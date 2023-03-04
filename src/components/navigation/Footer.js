@@ -30,7 +30,7 @@ const Footer = () => {
                     </li>
                 </ul>
 
-                <p>&copy; GradingSite 2023</p>
+                <p>&copy; Graider 2023</p>
             </div>
         </footer>
     )
