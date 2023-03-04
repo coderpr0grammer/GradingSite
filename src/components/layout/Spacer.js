@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Spacer ({horizontal, size}) {
+export const Spacer = ({horizontal, size}) => {
   const defaultValue = 'auto';
 
   return (
