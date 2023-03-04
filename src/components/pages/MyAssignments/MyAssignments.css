@@ -1,0 +1,22 @@
+#myAssignmentsHeader{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 64px;
+line-height: 77px;
+
+color: #FBFBFB;
+background: #141996;
+}
+
+#newAssignementBtn{
+    background: #28A334;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 40px;
+line-height: 48px;
+
+color: #FBFBFB;
+}
+
