@@ -41,9 +41,12 @@ function Discover() {
     <div class="col">
     <Card style={{ width: '18rem' }}>
       <Card.Body>
-        <Card.Title class="cardTitle">Card Title</Card.Title>
+        <Card.Title class="cardTitle">Understanding the World Through Marxist Lens</Card.Title>
         <Card.Text class="cardDesc">
-          Description of stuff goes here
+        By: Carlene Adams
+        </Card.Text>
+        <Card.Text class="cardDesc">
+        This assignment explores the use of marxist theory and lens to analyze the inner workings of literacture that has been used to impact the world in a positive manner. This has been inspired by the...
         </Card.Text>
         <a href="/grade">
         <Button variant="primary">Use Assignment</Button>
@@ -53,10 +56,13 @@ function Discover() {
     </div>
     <div class="col">
     <Card style={{ width: '18rem' }}>
-      <Card.Body>
-        <Card.Title class="cardTitle">Card Title</Card.Title>
+    <Card.Body>
+        <Card.Title class="cardTitle">How Has the World  Been Influenced by the novel 1984?</Card.Title>
         <Card.Text class="cardDesc">
-          Description of stuff goes here
+        By: Jackson James
+        </Card.Text>
+        <Card.Text class="cardDesc">
+        This assignment explores the use of authoritarian rule to analyze the inner workings of literature that has been used to impact the world in a positive manner. This has been inspired by the...
         </Card.Text>
         <a href="/grade">
         <Button variant="primary">Use Assignment</Button>
@@ -66,10 +72,13 @@ function Discover() {
     </div>
     <div class="col">
     <Card style={{ width: '18rem' }}>
-      <Card.Body>
-        <Card.Title class="cardTitle">Card Title</Card.Title>
+    <Card.Body>
+        <Card.Title class="cardTitle">The Fundamental Philosophical Natures</Card.Title>
         <Card.Text class="cardDesc">
-          Description of stuff goes here
+        By: Maxine Deans
+        </Card.Text>
+        <Card.Text class="cardDesc">
+        This assignment explores the use of authoritarian rule to analyze the inner workings of literature that has been used to impact the world in a positive manner. This has been inspired by the...
         </Card.Text>
         <a href="/grade">
         <Button variant="primary">Use Assignment</Button>
