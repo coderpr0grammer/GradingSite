@@ -473,8 +473,8 @@ const Grade = () => {
           {responseParsed && (
             <div>
               <div id="divider"></div>
-              <div class="row">
-                <div class="col">
+              <div class="row" >
+                <div class="col" style={{display: 'flex', justifyContent: 'center'}}>
                   <div
                     style={{
                       width: "350px",
@@ -487,7 +487,7 @@ const Grade = () => {
                     <PieChart
                       data={[
                         {
-                          title: mark,
+                          title: `${mark}%`,
                           value: 1,
                           color: mark > 70 ? "green" : "orange",
                         },
