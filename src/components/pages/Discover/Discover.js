@@ -58,21 +58,19 @@ function Discover() {
               <img style={{width:'100%'}} src={ExploreAssignments}></img>
             </div>
           </div>
-    
-          <div class="row">
-            <div class="col">
-              <form class="searchSort">
-                <label for="gsearch"></label>
-                <input type="search" placeholder="Search for an Assignment..." id="gsearch"/>
-              </form>
-            </div>
-            <div class="col">
-              <select class="categoryDropDown">
-                <option class="categoryDropDownChoice">Sort A-Z</option>
-                <option class="categoryDropDownChoice">Sort Z-A</option>
-              </select>
-            </div>
+
+          <div style={{margin:'30px', display: 'flex', justifyContent:'flex-start', gap: '20px'}}>
+            <form>
+              <label for="gsearch"></label>
+              <input type="search" placeholder="Search for an Assignment..." id="gsearch"/>
+            </form>
+
+            <select class="categoryDropDown">
+              <option class="categoryDropDownChoice">Sort A-Z</option>
+              <option class="categoryDropDownChoice">Sort Z-A</option>
+            </select>
           </div>
+          
             
           <div class="row">
             <div class="col">

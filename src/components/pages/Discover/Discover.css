@@ -19,7 +19,6 @@
     color: #EBF1EC;
 }   
 
-
 .cardTitle{
     font-family: 'Inter';
     font-style: normal;
@@ -47,24 +46,13 @@
     justify-content: center;
 }
 
-#gsearch{
+#gsearch, .categoryDropDown {
     color: black;
     font-family: 'Inter';
     border-radius: 10px;
-    padding: 10px;
-    position: relative;
-    left: 88em;
-    margin-bottom: 1.5em;
-}
-
-.categoryDropDown{
-    color: black;
-    font-family: 'Inter';
-    border-radius: 10px;
-    padding: 10px;
     border: 1px solid black;
-    position: relative;
-    left: 45em;
+    padding: 10px;
+    display: inline-block;
 }
 
 .categoryDropDownChoice{
