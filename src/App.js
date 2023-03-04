@@ -8,11 +8,13 @@ function App() {
   return (
     
       <div className="App">
+        <AuthenticationContextProvider>
         <Router>
           <Layout>
             <RoutesTree />
           </Layout>
         </Router>
+        </AuthenticationContextProvider>
       </div>
   );
 }
