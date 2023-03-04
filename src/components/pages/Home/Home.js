@@ -186,13 +186,13 @@ export default function Home() {
           </Col>
         </Row>
 
-        <div style={{ marginTop: 30, padding:'0vh 43vw 90px 44vw'}}>
+        <Row style={{ marginTop: 30, paddingBottom: 100, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
           {!user ? <GoogleLogin
             onSuccess={responseMessage}
             onError={errorMessage}
             useOneTap
-          /> : <Button variant="outline-success" onClick={()=> navigate('my-assignments')}>Go to Assignments</Button>}
-        </div> 
+          /> : <Button variant="outline-success" style={{width: 500, height: 100, fontSize: 40}} onClick={()=> navigate('my-assignments')}>Go to Assignments</Button>}
+        </Row> 
       </Container>
     </div>
   );
