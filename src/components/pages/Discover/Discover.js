@@ -16,9 +16,12 @@ import AssignmentItem from "../MyAssignments/AssignmentItem";
 import ExploreAssignments from "../../../assets/graphicUpscaled.jpg";
 import { Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
+import AssignmentsList from "./AssignmentsList";
+import Form from "react-bootstrap/Form";
 
 function Discover() {
   const [allAssignments, setAllAssignments] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
   useEffect(() => {
     async function getDiscoverAssignments() {
       getDocs(collection(db, "discoverAssignments"))
@@ -45,15 +48,30 @@ function Discover() {
     getDiscoverAssignments();
   }, []);
 
+  const filteredAssignments = allAssignments.filter(assignment => {
+		return assignment.title.toLowerCase().includes(searchValue.toLowerCase());
+	})
+
+
   return (
-    <Container fluid id="container" style={{paddingTop: '30px'}}>
+    <Container fluid id="container" style={{ paddingTop: "30px" }}>
       <Row id="DiscoverHeader">
         <div class="col-6">
-          <h1 style={{ padding: "36px 0px", color: '#7FBFE2'}} id="DiscoverHeaderText">
+          <h1
+            style={{ padding: "36px 0px", color: "#7FBFE2" }}
+            id="DiscoverHeaderText"
+          >
             Discover what other professors, teachers, and alike are up to
           </h1>
         </div>
-        <div class="col" style={{display: 'flex', justifyContent: 'center', paddingRight: '100px'}}>
+        <div
+          class="col"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            paddingRight: "100px",
+          }}
+        >
           <img
             alt="Explore"
             style={{ height: "50vh" }}
@@ -67,46 +85,13 @@ function Discover() {
           margin: "30px",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-start",
-            gap: "20px",
-          }}
-        >
-          <form>
-            <label for="gsearch"></label>
-            <input
-              type="search"
-              placeholder="Search for an Assignment..."
-              id="gsearch"
-            />
-          </form>
-        </div>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Search for an assignment</Form.Label>
+            <Form.Control type="text" placeholder="Grade 10 english..." style={{maxWidth: 300}} onChange={(e)=> setSearchValue(e.target.value)} value={searchValue} />
+          </Form.Group>
       </Row>
 
-      <Row
-        style={{
-          minHeight: "75vh",
-          height: "100%",
-          margin: "0 30px",
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "flex-start",
-          alignItems: "flex-start",
-        }}
-      >
-        {allAssignments &&
-          allAssignments.map((item) => (
-            <AssignmentItem
-              title={item.title}
-              id={item.id}
-              key={item.id}
-              criteria={item.criteria}
-            />
-          ))}
-      </Row>
+      <AssignmentsList assignments={filteredAssignments} />
     </Container>
   );
 }
