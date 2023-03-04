@@ -36,6 +36,16 @@ const Grade = () => {
   const { user, uid, setUser, setUid } = useContext(AuthenticationContext);
   const mountRef = useRef(false);
 
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    const inputElement = inputRef.current;
+    if (inputElement) {
+      const { width } = inputElement.getBoundingClientRect();
+      inputElement.style.width = `${width}px`;
+    }
+  }, [title]);
+
   let [searchParams, setSearchParams] = useSearchParams();
 
   const addCriteria = (name) => {
@@ -181,8 +191,8 @@ const Grade = () => {
   };
 
   return (
-    <div style={{ background: theme.colors.background }}>
-      <h5>{title && title}</h5>
+    <div style={{ background: theme.colors.background, padding: 30}}>
+      <h4 style={{textAlign: 'center'}}>{title && title}</h4>
       <Container
         style={{ textAlign: "left", minHeight: "80vh", minWidth: "80vw" }}
       >
@@ -258,9 +268,9 @@ const Grade = () => {
               lg={true}
               style={{
                 padding: "20px",
-                justifyContent: "center",
+                justifyContent: "flex-start",
                 alignItems: "center",
-                margin: "auto",
+                margin: "10px auto",
               }}
             >
               <Form.Group
@@ -328,7 +338,7 @@ const Grade = () => {
                 </ListGroup>
                 <InputGroup className="mt-3">
                   <Form.Control
-                    placeholder="your criterion"
+                    placeholder="e.g. Student meets the grade 10 standards of the english curriculum"
                     aria-label="your criterion"
                     aria-describedby="basic-addon2"
                     value={criteriaValue}
