@@ -113,6 +113,13 @@ export default function Home() {
                   useOneTap
                 /> : <Button variant="outline-success" onClick={()=> navigate('my-assignments')}>Go to Assignments</Button>}
               </div>
+              <h1 style={{ color: "#29509C", fontSize: 20, fontWeight: 1000 }}>
+              <br></br>
+              <br></br>
+                - Quickly mark texts <br></br>
+                - Collection of student works <br></br>
+                - Revolutionize marking with GradingSite
+              </h1>
               
             </div>
           </Col>
