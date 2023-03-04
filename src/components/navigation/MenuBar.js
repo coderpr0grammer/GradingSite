@@ -94,14 +94,14 @@ function MenuBar() {
         <Navbar.Brand>
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             <img src={Logo} width="50" />
-            &nbsp;GradingSite
+            &nbsp;&nbsp;&nbsp;GradingSite
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
         <Navbar.Collapse className="justify-content-end">
           <Nav>
-            <Nav.Link style={{ textAlign: "right", padding: "5px 50px 0px 0px"}} href="/my-assignments">
+            <Nav.Link style={{ textAlign: "right", padding: "8px 50px 0px 0px"}} href="/my-assignments">
               <span
                 to="/my-assignments"
                 style={{ textDecoration: "none", color: "white" }}
@@ -109,7 +109,7 @@ function MenuBar() {
                 My Assignments
               </span>
             </Nav.Link>
-            <Nav.Link style={{ textAlign: "right", padding: "5px 50px 0px 0px"}} href="/discover">
+            <Nav.Link style={{ textAlign: "right", padding: "8px 50px 0px 0px"}} href="/discover">
               <span
                 to="/discover"
                 style={{ textDecoration: "none", color: "white" }}
@@ -117,7 +117,7 @@ function MenuBar() {
                 Discover
               </span>
             </Nav.Link>
-            <Nav.Link style={{ textAlign: "right", padding: "5px 50px 0px 0px"}} href="/grade">
+            <Nav.Link style={{ textAlign: "right", padding: "8px 50px 0px 0px"}} href="/grade">
               <span
                 to="/grade"
                 style={{ textDecoration: "none", color: "white" }}
