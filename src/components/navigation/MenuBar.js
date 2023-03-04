@@ -101,7 +101,7 @@ function MenuBar() {
 
         <Navbar.Collapse className="justify-content-end">
           <Nav>
-            <Nav.Link style={{ textAlign: "right" }} href="/my-assignments">
+            <Nav.Link style={{ textAlign: "right", padding: "5px 50px 0px 0px"}} href="/my-assignments">
               <span
                 to="/my-assignments"
                 style={{ textDecoration: "none", color: "white" }}
@@ -109,12 +109,20 @@ function MenuBar() {
                 My Assignments
               </span>
             </Nav.Link>
-            <Nav.Link style={{ textAlign: "right" }} href="/discover">
+            <Nav.Link style={{ textAlign: "right", padding: "5px 50px 0px 0px"}} href="/discover">
               <span
                 to="/discover"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 Discover
+              </span>
+            </Nav.Link>
+            <Nav.Link style={{ textAlign: "right", padding: "5px 50px 0px 0px"}} href="/grade">
+              <span
+                to="/grade"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                Grade
               </span>
             </Nav.Link>
             <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
