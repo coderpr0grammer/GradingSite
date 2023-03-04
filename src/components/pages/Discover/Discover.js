@@ -13,7 +13,7 @@ import "./Discover.css";
 import Card from "react-bootstrap/Card";
 import { db } from "../../../utils/firebaseConfig";
 import AssignmentItem from "../MyAssignments/AssignmentItem";
-import ExploreAssignments from "../../../assets/download.png";
+import ExploreAssignments from "../../../assets/graphicUpscaled.jpg";
 import { Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 
@@ -49,14 +49,14 @@ function Discover() {
     <Container fluid id="container" style={{paddingTop: '30px'}}>
       <Row id="DiscoverHeader">
         <div class="col-6">
-          <h1 style={{ padding: "36px 0px" }} id="DiscoverHeaderText">
+          <h1 style={{ padding: "36px 0px", color: '#7FBFE2'}} id="DiscoverHeaderText">
             Discover what other professors, teachers, and alike are up to
           </h1>
         </div>
-        <div class="col">
+        <div class="col" style={{display: 'flex', justifyContent: 'center', paddingRight: '100px'}}>
           <img
             alt="Explore"
-            style={{ width: "100%" }}
+            style={{ height: "50vh" }}
             src={ExploreAssignments}
           ></img>
         </div>

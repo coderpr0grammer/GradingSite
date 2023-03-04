@@ -39,7 +39,7 @@ const Grade = () => {
   const [loading, setLoading] = useState(false);
   const [assignmentText, setAssignmentText] = useState("");
   const [gradeLevel, setGradeLevel] = useState(12);
-  const [mark, setMark] = useState(null);
+  const [mark, setMark] = useState(0);
   const [feedback, setFeedback] = useState("");
   const [title, setTitle] = useState("");
   const resultRef = useRef(null);
@@ -171,6 +171,7 @@ const Grade = () => {
     getThisDoc();
   }, [uid]);
 
+
   const gradeAssignment = (e) => {
     console.log("hi");
     e.preventDefault();
@@ -188,7 +189,7 @@ const Grade = () => {
       let prompt = [
         {
           role: "system",
-          content: `You are a strict teacher that will be marking an assignment out of 100%. You must give your response in the following JSON format: {"mark": "YOUR_MARK_WITHOUT_PERCENT_SYMBOL", "feedback": "YOUR_FEEDBACK"}`,
+          content: `You are a strict teacher and writing expert that will be marking an assignment out of 100%. You must give your response in the following JSON format: {"mark": "YOUR_MARK_WITHOUT_PERCENT_SYMBOL", "feedback": "YOUR_FEEDBACK"}`,
         },
         {
           role: "user",
@@ -274,6 +275,8 @@ const Grade = () => {
       addDocToPublishedAssignments();
     }
   };
+
+  console.log('mark', mark)
 
   return (
     <div style={{ background: theme.colors.background, padding: 30 }}>
@@ -472,37 +475,55 @@ const Grade = () => {
         <Row id="result" ref={resultRef}>
           {responseParsed && (
             <div>
-              
-<div id="divider"></div>
-              <div class="row" >
-    <div class="col" id="makingCenter1">
-    <div style={{ width: "350px", height: "350px",  borderRadius: '100%' , borderWidth: 10, borderColor: 'red'}}>
-                <PieChart
-                  data={[{ title: mark, value: 1, color: mark > 70 ? "green" : 'orange' }]}
-                  radius={40}
-                  lineWidth={10}
-                  label={({ dataEntry }) => dataEntry.title}
-                  labelPosition={0}
-                  labelStyle={{
-                    fontSize: "30px",
-                    fontWeight: "bold",
-                    fill: mark > 70 ? "green" : 'orange',
-                  }}
-                  animate
-                />
+              <div id="divider"></div>
+              <div class="row">
+                <div class="col" id="makingCenter1">
+                  <div
+                    style={{
+                      width: "350px",
+                      height: "350px",
+                      borderRadius: "100%",
+                      borderWidth: 10,
+                      borderColor: "red",
+                    }}
+                  >
+                    <PieChart
+                      data={[
+                        {
+                          title: `${mark}%`,
+                          value: parseInt(mark),
+                          color: mark > 70 ? "green" : "orange",
+                        },
+                        {
+                          title: '',
+                          value: 100 - parseInt(mark),
+                          color: '#F6F9F4',
+                        },
+                      ]}
+                      radius={40}
+                      lineWidth={10}
+                      label={({ dataEntry }) => dataEntry.title}
+                      labelPosition={0}
+                      labelStyle={{
+                        fontSize: "30px",
+                        fontWeight: "bold",
+                        fill: mark > 70 ? "green" : "orange",
+                      }}
+                      animate
+                    />
+                  </div>
+                </div>
+                <div class="col" id="makingCenter2">
+                  <BarGraph />
+                </div>
               </div>
-    </div>
-    <div class="col" id="makingCenter2">
-    <BarGraph/>
-    </div>
-  </div>
 
               <Spacer size={30} />
               <div id="feedbackBox">
-              <h1 id="feedbackTitle">Media Feedback:</h1>
-              <p class="counts">Word Count: {wordCount} </p>
-              <p class="counts">Character Count: {charCount}</p>
-              <p>{feedback}</p>
+                <h1 id="feedbackTitle">Media Feedback:</h1>
+                <p class="counts">Word Count: {wordCount} </p>
+                <p class="counts">Character Count: {charCount}</p>
+                <p>{feedback}</p>
               </div>
             </div>
           )}

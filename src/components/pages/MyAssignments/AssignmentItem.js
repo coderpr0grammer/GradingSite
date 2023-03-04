@@ -29,7 +29,7 @@ const AssignmentItem = (props) => {
                 }}>
                     <Card.Title>{props.title}</Card.Title>
 
-                    {criteria && (<div><Spacer size={10} />Criteria
+                    {criteria && (<div><Spacer size={10} />{criteria.length > 0 ? 'Criteria' : 'There is no criteria for this assignment yet.' }
                         <ListGroup style={{ background: '#DCEDDB !important', overflow: 'scroll' }}>
                             {criteria.map((currentValue, index) => (
                                 <ListGroup.Item style={{ background: 'transparent', textAlign: 'left', maxHeight: 100, whiteSpace: criteria.length > 1 && 'nowrap', overflowX: 'scroll' }} key={index} className={index > 2 ? 'd-none' : ''}>{currentValue}</ListGroup.Item>
