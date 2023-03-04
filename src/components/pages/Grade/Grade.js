@@ -496,7 +496,7 @@ const Grade = () => {
                         {
                           title: "",
                           value: 100 - parseInt(mark),
-                          color: "#F6F9F4",
+                          color: mark > 0 ? "#F6F9F4" : 'gray',
                         },
                       ]}
                       radius={40}
