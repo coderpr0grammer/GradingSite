@@ -9,14 +9,16 @@ function Grade() {
   return (
     <div className="App">
       <header className="App-header">
-      <h1 id="pageHeader">Grade Your Papers Now</h1>
-        <input type="text" id="essay" placeholder="Insert your text here, upload a file, or scan a paper to start the evaluation..."/>
-        <button id="btn">Save</button>
-        <script src="code.js"></script>
-        <PieChart width={400} height={400}>
-        <Pie data={donutData} dataKey="score" outerRadius={170} fill="#1B0166" innerRadius={100} startAngle={90} endAngle={90 + donutData[0].score*3.6}/>
-        </PieChart>
-        <p id="gradeLabel" >{donutData[0].score}%</p>
+      <h1 style={{color: "#28A334", fontSize: 50, fontWeight:1000}}>
+      Grade Your Papers <span style={{color: '#150578'}}>Now</span>
+      </h1>
+      <input type="text" id="essay" placeholder="Insert your text here, upload a file, or scan a paper to start the evaluation..."/>
+      <button id="btn">Save</button>
+      <script src="code.js"></script>
+      <PieChart width={400} height={400}>
+      <Pie data={donutData} dataKey="score" outerRadius={170} fill="#1B0166" innerRadius={100} startAngle={90} endAngle={90 + donutData[0].score*3.6}/>
+      </PieChart>
+      <p id="gradeLabel" >{donutData[0].score}%</p>
 
     
   <BarChart width={300} height={200} data={barChart}>

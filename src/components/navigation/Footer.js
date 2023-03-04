@@ -5,7 +5,7 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <footer>
+        <footer style={{position:"fixed", left:"0", bottom:"0", width:"100%"}}>
             <div className="footer">
                 <ul>
                     <li><Link to="/">Home</Link></li>
