@@ -1,33 +1,33 @@
 #DiscoverHeader{
-color: #EBF1EC;
-background: #7FBFE2;
+    color: #EBF1EC;
+    background: #7FBFE2;
 
-margin: 30px;
-padding: 30px;
-border-radius: 25px;
-
+    margin: 30px;
+    padding: 30px;
+    border-radius: 25px;
+    max-width: 100%;
 }
 
 #DiscoverHeaderText{
     font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 75px;
-line-height: 77px;
-margin-left: 40px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 75px;
+    line-height: 77px;
+    margin-left: 40px;
 
-color: #EBF1EC;
+    color: #EBF1EC;
 }   
 
 
 .cardTitle{
     font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 32px;
-line-height: 39px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
 
-color: #000000;
+    color: #000000;
 }
 
 .cardDesc{
@@ -74,23 +74,31 @@ color: #000000;
 
 #inspirationBtn{
     font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 32px;
-line-height: 39px;
-text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    text-align: center;
 
-color: #F4FAF3;
-background-color: #28A334;
-font-family: 'Inter';
-padding: 0.4em;
+    color: #F4FAF3;
+    background-color: #28A334;
+    font-family: 'Inter';
+    padding: 0.4em;
 
-border-radius: 25px;
-margin-top: 25px;
-margin-bottom: 10px;
+    border-radius: 25px;
+    margin-top: 25px;
+    margin-bottom: 10px;
 }
 
 #inspirationContainer{
     padding-left: 45em;
     padding-right: 45em;
+}
+
+.center {
+    padding: 5%;  
+}
+
+.center-child {
+    
 }
