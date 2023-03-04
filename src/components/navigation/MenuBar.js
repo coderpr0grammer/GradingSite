@@ -107,6 +107,7 @@ function MenuBar() {
                 to="/my-assignments"
                 style={{ textDecoration: "none", color: "white" }}
               >
+                <i className="fa-solid fa-book"></i> &nbsp;
                 My Assignments
               </span>
             </Nav.Link>
@@ -115,7 +116,7 @@ function MenuBar() {
                 to="/discover"
                 style={{ textDecoration: "none", color: "white" }}
               >
-                Discover
+                <i className="fa-solid fa-compass"></i>&nbsp;&nbsp;Discover
               </span>
             </Nav.Link>
           </Nav>
