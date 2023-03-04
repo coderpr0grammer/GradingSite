@@ -106,19 +106,19 @@ export default function Home() {
                 Grading Just <br></br>Got{" "}
                 <span style={{ color: "#150578" }}>Easier</span>
               </h1>
-              <div style={{ marginTop: 50 }}>
+              <h1 style={{ color: "#29509C", fontSize: 20, fontWeight: 1000 }}>
+              <p class="bulletPoints"><i class="fa-solid fa-check"></i>&nbsp;&nbsp;<span style={{color: '#28A745', fontWeight: 800, fontSize: 22}}>Streamline</span> the grading and evaluation of media</p>
+              <p class="bulletPoints"><i class="fa-solid fa-check"></i>&nbsp;&nbsp;Avoid grading with <span style={{color: '#28A745', fontWeight: 800, fontSize: 22}}>biases</span> towards student works</p>
+              <p class="bulletPoints"><i class="fa-solid fa-check"></i>&nbsp;&nbsp;Take <span style={{color: '#28A745', fontWeight: 800, fontSize: 22}}>control</span> of your precious time</p>
+              </h1>
+              <div style={{ marginTop: 30 }}>
                 {!user ? <GoogleLogin
                   onSuccess={responseMessage}
                   onError={errorMessage}
                   useOneTap
                 /> : <Button variant="outline-success" onClick={()=> navigate('my-assignments')}>Go to Assignments</Button>}
               </div>
-              <h1 style={{ color: "#29509C", fontSize: 20, fontWeight: 1000 }}>
-              <p class="bulletPoints">• Streamline the grading and evaluation of media</p>
-              <p class="bulletPoints">• Efficiently manage the works of numerous student</p>
-              <p class="bulletPoints">• Take control of your precious time</p>
-              {/* <a class="btn btn-primary" id="homeTryBtn" href="my-assignments" role="button">Try Now</a> */}
-              </h1>
+              
               
             </div>
           </Col>
