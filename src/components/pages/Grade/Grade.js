@@ -15,6 +15,7 @@ import Spacer from "../../layout/Spacer";
 import { useSearchParams } from "react-router-dom";
 import theme from "../../../infrastructure/theme";
 import { PieChart } from "react-minimal-pie-chart";
+import BarGraph from "./BarGraph";
 
 import "./Grade.css";
 import { faBorderStyle } from "@fortawesome/free-solid-svg-icons";
@@ -374,7 +375,7 @@ const Grade = () => {
         <Row id="result" ref={resultRef}>
           {responseParsed && (
             <div>
-              <div style={{ width: "200px", height: "200px", borderRadius: '100%' , borderWidth: 10, borderColor: 'red'}}>
+              <div style={{ width: "200px", height: "200px",  borderRadius: '100%' , borderWidth: 10, borderColor: 'red'}}>
                 <PieChart
                   data={[{ title: mark, value: 1, color: mark > 70 ? "green" : 'orange' }]}
                   radius={40}
@@ -389,6 +390,8 @@ const Grade = () => {
                   animate
                 />
               </div>
+              <BarGraph/>
+
               <h1>Grade: {mark}%</h1>
               <Spacer size={30} />
               <h1>Feedback:</h1>

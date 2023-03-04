@@ -9,6 +9,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import { app, db } from "../../../utils/firebaseConfig";
 import { AuthenticationContext } from "../../../infrastructure/Authentication/authentication.context";
 import { useNavigate } from "react-router";
+import Button from 'react-bootstrap/Button';
 
 import {
   getAuth,
@@ -106,11 +107,11 @@ export default function Home() {
                 <span style={{ color: "#150578" }}>Easier</span>
               </h1>
               <div style={{ marginTop: 50 }}>
-                <GoogleLogin
+                {!user ? <GoogleLogin
                   onSuccess={responseMessage}
                   onError={errorMessage}
                   useOneTap
-                />
+                /> : <Button variant="outline-success" onClick={()=> navigate('my-assignments')}>Go to Assignments</Button>}
               </div>
               
             </div>

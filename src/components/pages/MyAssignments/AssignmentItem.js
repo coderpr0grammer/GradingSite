@@ -20,7 +20,7 @@ const AssignmentItem = (props) => {
     return (
         <Col sm={4} style={{ borderRadius: 10, width: 'auto' }}>
 
-            <Card className="card" title={props.title} style={{ width: '18rem', height: '18rem', overflow: 'hidden', margin: 'auto', cursor: 'pointer', background: '#EBFCEA' }} onClick={() => navigate(`/grade?d=${props.id}`)}>
+            <Card className="card" title={props.title} style={{ width: '18rem', height: '18rem', overflow: 'hidden', margin: 'auto', cursor: 'pointer', background: '#F6F9F4' }} onClick={() => navigate(`/grade?d=${props.id}`)}>
                 <Card.Body style={{
                     display: 'flex',
                     flexDirection: 'column',
